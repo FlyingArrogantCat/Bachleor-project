@@ -20,7 +20,6 @@ C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\bin\Debug\Databas
 C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\bin\Debug\myDiplom.exe
 C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\bin\Debug\myDiplom.pdb
 C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.csprojResolveAssemblyReference.cache
-C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.add_new_country.resources
 C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.Form1.resources
 C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.Form2.resources
 C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.Properties.Resources.resources

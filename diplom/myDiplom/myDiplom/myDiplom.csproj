@@ -60,12 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="add_new_country.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="add_new_country.Designer.cs">
-      <DependentUpon>add_new_country.cs</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,9 +85,6 @@
     <Compile Include="show_data.Designer.cs">
       <DependentUpon>show_data.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="add_new_country.resx">
-      <DependentUpon>add_new_country.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
