@@ -30,9 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainIdeaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createNewDistributionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewCountryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inforamnionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutAuthorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,40 +54,24 @@
             // mainIdeaToolStripMenuItem
             // 
             this.mainIdeaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createNewDistributionToolStripMenuItem,
             this.showDataToolStripMenuItem,
-            this.addNewCountryToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.mainIdeaToolStripMenuItem.Name = "mainIdeaToolStripMenuItem";
             this.mainIdeaToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.mainIdeaToolStripMenuItem.Text = "main idea";
             this.mainIdeaToolStripMenuItem.Click += new System.EventHandler(this.mainIdeaToolStripMenuItem_Click);
             // 
-            // createNewDistributionToolStripMenuItem
-            // 
-            this.createNewDistributionToolStripMenuItem.Name = "createNewDistributionToolStripMenuItem";
-            this.createNewDistributionToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.createNewDistributionToolStripMenuItem.Text = "create new distribution";
-            this.createNewDistributionToolStripMenuItem.Click += new System.EventHandler(this.createNewDistributionToolStripMenuItem_Click);
-            // 
             // showDataToolStripMenuItem
             // 
             this.showDataToolStripMenuItem.Name = "showDataToolStripMenuItem";
-            this.showDataToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.showDataToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.showDataToolStripMenuItem.Text = "show data";
             this.showDataToolStripMenuItem.Click += new System.EventHandler(this.showDataToolStripMenuItem_Click);
-            // 
-            // addNewCountryToolStripMenuItem
-            // 
-            this.addNewCountryToolStripMenuItem.Name = "addNewCountryToolStripMenuItem";
-            this.addNewCountryToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.addNewCountryToolStripMenuItem.Text = "add new country";
-            this.addNewCountryToolStripMenuItem.Click += new System.EventHandler(this.addNewCountryToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.exitToolStripMenuItem.Text = "exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -106,14 +88,14 @@
             // aboutAuthorToolStripMenuItem
             // 
             this.aboutAuthorToolStripMenuItem.Name = "aboutAuthorToolStripMenuItem";
-            this.aboutAuthorToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.aboutAuthorToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.aboutAuthorToolStripMenuItem.Text = "about author";
             this.aboutAuthorToolStripMenuItem.Click += new System.EventHandler(this.aboutAuthorToolStripMenuItem_Click);
             // 
             // aboutProgramToolStripMenuItem
             // 
             this.aboutProgramToolStripMenuItem.Name = "aboutProgramToolStripMenuItem";
-            this.aboutProgramToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.aboutProgramToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.aboutProgramToolStripMenuItem.Text = "about program";
             this.aboutProgramToolStripMenuItem.Click += new System.EventHandler(this.aboutProgramToolStripMenuItem_Click);
             // 
@@ -156,12 +138,10 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mainIdeaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createNewDistributionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inforamnionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutAuthorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutProgramToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewCountryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lastCommentFromMeToolStripMenuItem;
         private System.Windows.Forms.Button button1;

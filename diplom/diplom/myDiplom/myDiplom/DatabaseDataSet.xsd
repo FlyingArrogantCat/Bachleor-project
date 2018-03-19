@@ -53,7 +53,7 @@
   <xs:element name="DatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DatabaseDataSet" msprop:Generator_UserDSName="DatabaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Russia" msprop:Generator_TableClassName="RussiaDataTable" msprop:Generator_TableVarName="tableRussia" msprop:Generator_TablePropName="Russia" msprop:Generator_RowDeletingName="RussiaRowDeleting" msprop:Generator_RowChangingName="RussiaRowChanging" msprop:Generator_RowEvHandlerName="RussiaRowChangeEventHandler" msprop:Generator_RowDeletedName="RussiaRowDeleted" msprop:Generator_UserTableName="Russia" msprop:Generator_RowChangedName="RussiaRowChanged" msprop:Generator_RowEvArgName="RussiaRowChangeEvent" msprop:Generator_RowClassName="RussiaRow">
+        <xs:element name="Russia" msprop:Generator_TableClassName="RussiaDataTable" msprop:Generator_TableVarName="tableRussia" msprop:Generator_RowChangedName="RussiaRowChanged" msprop:Generator_TablePropName="Russia" msprop:Generator_RowDeletingName="RussiaRowDeleting" msprop:Generator_RowChangingName="RussiaRowChanging" msprop:Generator_RowEvHandlerName="RussiaRowChangeEventHandler" msprop:Generator_RowDeletedName="RussiaRowDeleted" msprop:Generator_RowClassName="RussiaRow" msprop:Generator_UserTableName="Russia" msprop:Generator_RowEvArgName="RussiaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="country" msprop:Generator_ColumnVarNameInTable="columncountry" msprop:Generator_ColumnPropNameInRow="country" msprop:Generator_ColumnPropNameInTable="countryColumn" msprop:Generator_UserColumnName="country">
@@ -88,6 +88,18 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="general" msprop:Generator_TableClassName="generalDataTable" msprop:Generator_TableVarName="tablegeneral" msprop:Generator_TablePropName="general" msprop:Generator_RowDeletingName="generalRowDeleting" msprop:Generator_RowChangingName="generalRowChanging" msprop:Generator_RowEvHandlerName="generalRowChangeEventHandler" msprop:Generator_RowDeletedName="generalRowDeleted" msprop:Generator_UserTableName="general" msprop:Generator_RowChangedName="generalRowChanged" msprop:Generator_RowEvArgName="generalRowChangeEvent" msprop:Generator_RowClassName="generalRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="country" msprop:Generator_ColumnVarNameInTable="columncountry" msprop:Generator_ColumnPropNameInRow="country" msprop:Generator_ColumnPropNameInTable="countryColumn" msprop:Generator_UserColumnName="country" type="xs:string" minOccurs="0" />
+              <xs:element name="education" msprop:Generator_ColumnVarNameInTable="columneducation" msprop:Generator_ColumnPropNameInRow="education" msprop:Generator_ColumnPropNameInTable="educationColumn" msprop:Generator_UserColumnName="education" type="xs:string" minOccurs="0" />
+              <xs:element name="age" msprop:Generator_ColumnVarNameInTable="columnage" msprop:Generator_ColumnPropNameInRow="age" msprop:Generator_ColumnPropNameInTable="ageColumn" msprop:Generator_UserColumnName="age" type="xs:string" minOccurs="0" />
+              <xs:element name="culture" msprop:Generator_ColumnVarNameInTable="columnculture" msprop:Generator_ColumnPropNameInRow="culture" msprop:Generator_ColumnPropNameInTable="cultureColumn" msprop:Generator_UserColumnName="culture" type="xs:string" minOccurs="0" />
+              <xs:element name="national_worth" msprop:Generator_ColumnVarNameInTable="columnnational_worth" msprop:Generator_ColumnPropNameInRow="national_worth" msprop:Generator_ColumnPropNameInTable="national_worthColumn" msprop:Generator_UserColumnName="national_worth" type="xs:string" minOccurs="0" />
+              <xs:element name="world_worth" msprop:Generator_ColumnVarNameInTable="columnworld_worth" msprop:Generator_ColumnPropNameInRow="world_worth" msprop:Generator_ColumnPropNameInTable="world_worthColumn" msprop:Generator_UserColumnName="world_worth" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

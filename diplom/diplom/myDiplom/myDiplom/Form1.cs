@@ -15,7 +15,11 @@ namespace myDiplom
     //public static List<string> mass_of_country; /*= new List<string>() { "Russia", "Finland" }*/
     public partial class Form1 : Form
     {
-        List<distribution> nation = new List<distribution>();
+        public List<per_capita_income> temp_pci = new List<per_capita_income>();
+        public country temp_country = new country();
+        public List<country> Gomer = new List<country>();
+
+        /*List<distribution> nation = new List<distribution>();*/
         public Form1()
         {
             InitializeComponent();
@@ -44,8 +48,11 @@ namespace myDiplom
 
         private void showDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            show_data f = new show_data();
-            f.Show();
+            /*show_data f = new show_data();
+            f.Show();*/
+            view_dataset f = new view_dataset();
+            f.Owner = this;
+            f.ShowDialog();
         }
 
         private void aboutAuthorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,7 +82,7 @@ namespace myDiplom
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<distribution> county = new List<distribution>();
+            /*List<distribution> county = new List<distribution>();*/
             try
             {
                 DialogResult rt=MessageBox.Show("Are you sure that you want run analysis?", "Attention", MessageBoxButtons.YesNo);
@@ -84,7 +91,7 @@ namespace myDiplom
                     try
                     {
                         string sql = "select * from Russia";
-                        distribution temp = new distribution();
+                        //distribution temp = new distribution();
                         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\fyodo\Desktop\diplom-master\diplom\myDiplom\myDiplom\bin\Debug\DATABASE.MDF;Integrated Security=True");
                         //C:\USERS\FYODO\DESKTOP\DIPLOM-MASTER\DIPLOM\MYDIPLOM\MYDIPLOM\DATABASE.MDF
                         //C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\Database.mdf

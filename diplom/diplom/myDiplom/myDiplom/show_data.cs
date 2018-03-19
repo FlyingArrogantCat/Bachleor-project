@@ -23,7 +23,7 @@ namespace myDiplom
             Close();
         }
 
-        private void russiaBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void countryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace myDiplom
                 databaseDataSet.AcceptChanges();
             }
 
-            catch (System.Exception ex)
+            catch
             {
                 MessageBox.Show("Update failed");
             }
@@ -52,7 +52,7 @@ namespace myDiplom
             {
                 string sql = "select country from Russia";
                 //MessageBox.Show(text: "It has be done", caption: "Accept!", buttons: MessageBoxButtons.OK);
-                SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\fyodo\Desktop\diplom-master\diplom\myDiplom\myDiplom\bin\Debug\DATABASE.MDF;Integrated Security=True");
+                SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\Database.mdf;Integrated Security=True");
                 //C:\USERS\FYODO\DESKTOP\DIPLOM-MASTER\DIPLOM\MYDIPLOM\MYDIPLOM\DATABASE.MDF
                 //C:\Users\FLoginov\Source\Repos\diplom\diplom\myDiplom\myDiplom\Database.mdf
                 conn.Open();
@@ -80,6 +80,11 @@ namespace myDiplom
             //russiaTableAdapter.Update(databaseDataSet);
 
             
+        }
+
+        private void generalDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
