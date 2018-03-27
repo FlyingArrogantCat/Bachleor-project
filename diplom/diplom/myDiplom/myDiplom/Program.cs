@@ -24,27 +24,25 @@ namespace myDiplom
         //public List<string> mass_of_country = new List<string>() { "Russia", "Finland" };
     }
     
-    class distribution
+    public class distribution
     {
         public string age { get; set; }
-        public string gender { get; set; }
         public string education { get; set; }
+        public string culture { get; set; }
         public double culture_tradition { get; set; }
         public double culture_susceptibility { get; set; }
-        public int wish_migration { get; set; }
         public int amount { get; set; }
 
         public distribution()
         {
             this.age = "0-18";
-            this.gender = "none";
+            this.culture = "none";
             this.education = "none";
             this.culture_susceptibility = 0.0f;
             this.culture_tradition = 0.0f;
-            this.wish_migration = 0;
             this.amount = 0;
         }
-        public void print()
+        public void print_amt()
         {
 
             MessageBox.Show("Amount = " + Convert.ToString(this.amount) + "\n", "Distribution", MessageBoxButtons.OK);
@@ -100,26 +98,35 @@ namespace myDiplom
     public class country
     {
         public string name_country;
-        public int amt_people;
-        public List<human> people = new List<human>();
-        public double level_of_unemployment;
-        public List<per_capita_income> median_income_capital=new List<per_capita_income>();
+        public double power;
+        public double technology;
+        public double enviroment;
+        public double educ_cult;
+        public double educ_tech;
+        List<distribution> people = new List<distribution>();
+        //public List<per_capita_income> median_income_capital=new List<per_capita_income>();
         /*Далее можно добавить информационое воздействие, или по крайней мере переменную отвечающую за пропаганду*/
-        public country(double level)
-        {
-            this.level_of_unemployment = level;
-        }
         public country()
         {
-            this.level_of_unemployment = 0.0f;
+            this.enviroment = 0.0f;
             this.name_country = "";
-            this.amt_people =0;
+            this.power =0.0f;
+            this.technology = 0.0f;
+            this.educ_cult = 0.0f;
+            this.educ_tech = 0.0f;
         }
         public void print()
         {
-            MessageBox.Show("AMT="+this.amt_people.ToString()+"\n"+"lvl_unemp="+this.level_of_unemployment.ToString()+"\n",this.name_country,MessageBoxButtons.OK);
+            double amt = 0.0f;
+        
+            for(int i=0;i<people.Count;i++)
+            {
+                amt = amt + people[i].amount;
+            }
+            MessageBox.Show("Amount of sitizens="+amt.ToString()+"\n"+"Enviroment="+this.enviroment.ToString()+"\n"+"Power="+this.power.ToString()+"\n"+"Technology="+this.technology.ToString(),this.name_country,MessageBoxButtons.OK);
         }
     }
+    /*
     public class per_capita_income
     {
         public double amt;
@@ -130,7 +137,7 @@ namespace myDiplom
             this.amt = 0.0f;
             this.education = "none";
         }
-    }
+    }*/
     /*
     public class country_set
     {

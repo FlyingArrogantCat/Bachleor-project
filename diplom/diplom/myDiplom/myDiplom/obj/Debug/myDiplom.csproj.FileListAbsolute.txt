@@ -40,7 +40,6 @@ C:\Users\fyodo\Desktop\diplom-master\diplom\myDiplom\myDiplom\obj\Debug\myDiplom
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.csprojResolveAssemblyReference.cache
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.Form1.resources
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.Properties.Resources.resources
-C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.show_data.resources
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.csproj.GenerateResource.Cache
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.csproj.CoreCompileInputs.cache
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.exe
@@ -49,3 +48,5 @@ C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\myDiplom.exe.co
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\myDiplom.exe
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\myDiplom.pdb
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.view_dataset.resources
+C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\Database.mdf
+C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\Database_log.ldf

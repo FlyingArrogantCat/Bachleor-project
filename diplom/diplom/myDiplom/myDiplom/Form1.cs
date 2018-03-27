@@ -15,7 +15,7 @@ namespace myDiplom
     //public static List<string> mass_of_country; /*= new List<string>() { "Russia", "Finland" }*/
     public partial class Form1 : Form
     {
-        public List<per_capita_income> temp_pci = new List<per_capita_income>();
+        public distribution temp_distr = new distribution();
         public country temp_country = new country();
         public List<country> Gomer = new List<country>();
 
@@ -50,7 +50,7 @@ namespace myDiplom
         {
             /*show_data f = new show_data();
             f.Show();*/
-            view_dataset f = new view_dataset();
+            add_country f = new add_country();
             f.Owner = this;
             f.ShowDialog();
         }
@@ -72,7 +72,7 @@ namespace myDiplom
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            /*Here I must create reading data from database to GOmer*/
         }
 
         private void lastCommentFromMeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace myDiplom
                 {
                     try
                     {
-                        string sql = "select * from Russia";
+                        string sql = "select * from country";
                         //distribution temp = new distribution();
                         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\fyodo\Desktop\diplom-master\diplom\myDiplom\myDiplom\bin\Debug\DATABASE.MDF;Integrated Security=True");
                         //C:\USERS\FYODO\DESKTOP\DIPLOM-MASTER\DIPLOM\MYDIPLOM\MYDIPLOM\DATABASE.MDF
