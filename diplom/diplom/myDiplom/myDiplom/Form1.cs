@@ -15,16 +15,17 @@ namespace myDiplom
     //public static List<string> mass_of_country; /*= new List<string>() { "Russia", "Finland" }*/
     public partial class Form1 : Form
     {
-        public distribution temp_distr = new distribution();
+        public static int Amount_of_country = 10;
+        public static int max_life_age = 100;
+        public static int amt_educ = 10;
         public country temp_country = new country();
         public List<country> Gomer = new List<country>();
-
+        public matrix ch_age, ch_educ, ch_cult, graph;
         /*List<distribution> nation = new List<distribution>();*/
         public Form1()
         {
             InitializeComponent();
         }
-        
 
         private void createNewDistributionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -83,6 +84,7 @@ namespace myDiplom
         private void button1_Click(object sender, EventArgs e)
         {
             /*List<distribution> county = new List<distribution>();*/
+            /*
             try
             {
                 DialogResult rt=MessageBox.Show("Are you sure that you want run analysis?", "Attention", MessageBoxButtons.YesNo);
@@ -104,7 +106,7 @@ namespace myDiplom
                         
                         while (reader.Read())
                         {
-                            MessageBox.Show(reader.GetString(0)+" "+reader.GetString(1) /*+ " " + reader.GetString(2) + " " + reader.GetString(3) +" " + reader.GetString(4) + " " + reader.GetString(5) + " " + reader.GetString(6) + " " + reader.GetString(7)*/,"data", MessageBoxButtons.OK);
+                            MessageBox.Show(reader.GetString(0)+" "+reader.GetString(1) ,"data", MessageBoxButtons.OK);
                             //data.Add(reader[0].ToString());
                         }
                         //MessageBox.Show(data[1], "", MessageBoxButtons.OK);
@@ -127,6 +129,7 @@ namespace myDiplom
             {
 
             }
+    */
         }
     }
 }

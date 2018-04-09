@@ -19,81 +19,113 @@ namespace myDiplom
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
             // public List<string> mass_of_country = new List<string>() { "Russia", "Finland" };
         }
         //public List<string> mass_of_country = new List<string>() { "Russia", "Finland" };
     }
-    
-    public class distribution
-    {
-        public string age { get; set; }
-        public string education { get; set; }
-        public string culture { get; set; }
-        public double culture_tradition { get; set; }
-        public double culture_susceptibility { get; set; }
-        public int amount { get; set; }
-
-        public distribution()
+ 
+    public class tensor
+    { /*возраст от 1 до 100
+        число культур= числу стран
+         */
+        public readonly List<double[,]> matrix;
+        public int size_list;
+        public int size_double_first;
+        public int size_double_second;
+        public tensor(int education, int age, int culture)
         {
-            this.age = "0-18";
-            this.culture = "none";
-            this.education = "none";
-            this.culture_susceptibility = 0.0f;
-            this.culture_tradition = 0.0f;
-            this.amount = 0;
-        }
-        public void print_amt()
-        {
-
-            MessageBox.Show("Amount = " + Convert.ToString(this.amount) + "\n", "Distribution", MessageBoxButtons.OK);
-        }
-    }
-
-    public class human
-    {
-        public int age { get; set; }
-        public string education { get; set; }
-        public double nation_worth { get; set; }
-        public double world_worth { get; set; }
-
-        public human()
-        {
-            this.age = 0;
-            this.education = "none";
-            this.nation_worth = 0.0f;
-            this.world_worth = 0.0f;
-        }
-        public void print()
-        {
-            MessageBox.Show("Age=" + age.ToString() + "\n" + "Education" + education + "\n" + "Level of national worth=" + nation_worth.ToString() + "\n" + "Level of world worth" + world_worth.ToString(), "HUMAN", MessageBoxButtons.OK);
-        }
-        public void growing_up()
-        {
-            this.age = this.age + 1;
-        }
-        public void education_level_up()
-        {
-            if (this.education == "none")
+            matrix = new List<double[,]>(education);
+            try
             {
-                this.education = "low";
+                double[,] temp = new double[age, culture];
+                for (int i = 0; i < age; i++)
+                    for (int j = 0; j < culture; j++)
+                    {
+                        temp[i, j] = 0.0f;
+                    }
+                for (int i = 0; i < education; i++)
+                {
+                    matrix.Add(temp);
+                }
+                size_list = education;
+                size_double_first = age;
+                size_double_second = culture;
             }
-            else if (this.education == "low")
+            catch
             {
-                this.education = "medium";
-            }
-            else if (this.education == "medium")
-            {
-                this.education = "high";
+                MessageBox.Show("Mistery error! I think, it is fate(British humor detected).", "Error", MessageBoxButtons.OK);
             }
         }
-        public void change_national_worth(double x)
+        public List<double> education_distribution()
         {
-            this.nation_worth = this.nation_worth + x;
+            List<double> temp = new List<double>();
+
+            for (int i = 0; i < size_list; i++)
+            {
+                double x = 0.0f;
+                for (int j = 0; j < size_double_first; j++)
+                {
+                    for (int k = 0; k < size_double_second; k++)
+                    {
+                        x = x + matrix[i][j, k];
+                    }
+                }
+                temp.Add(x);
+            }
+            return temp;
         }
-        public void change_world_worth(double x)
+        public List<double> age_distribution()
         {
-            this.world_worth = this.world_worth + x;
+            List<double> temp = new List<double>();
+            for (int j = 0; j < size_double_first; j++)
+
+            {
+                double x = 0.0f;
+                for (int i = 0; i < size_list; i++)
+                {
+                    for (int k = 0; k < size_double_second; k++)
+                    {
+                        x = x + matrix[i][j, k];
+                    }
+                }
+                temp.Add(x);
+            }
+            return temp;
         }
+        public List<double> culture_distribution()
+        {
+            List<double> temp = new List<double>();
+            for (int k = 0; k < size_double_second; k++)
+            {
+                double x = 0.0f;
+                for (int i = 0; i < size_list; i++)
+                {
+                    for (int j = 0; j < size_double_first; j++)
+                    {
+                        x = x + matrix[i][j, k];
+                    }
+                }
+                temp.Add(x);
+            }
+            return temp;
+        }
+        public double population()
+        {
+            double z = 0.0f;
+            for (int k = 0; k < size_double_second; k++)
+            {
+                for (int i = 0; i < size_list; i++)
+                {
+                    for (int j = 0; j < size_double_first; j++)
+                    {
+                        z = z + matrix[i][j, k];
+                    }
+                }
+            }
+            return z;
+        }
+
     }
     public class country
     {
@@ -103,54 +135,45 @@ namespace myDiplom
         public double enviroment;
         public double educ_cult;
         public double educ_tech;
-        List<distribution> people = new List<distribution>();
+        public readonly tensor population;
         //public List<per_capita_income> median_income_capital=new List<per_capita_income>();
-        /*Далее можно добавить информационое воздействие, или по крайней мере переменную отвечающую за пропаганду*/
+
         public country()
         {
             this.enviroment = 0.0f;
             this.name_country = "";
-            this.power =0.0f;
+            this.power = 0.0f;
             this.technology = 0.0f;
             this.educ_cult = 0.0f;
             this.educ_tech = 0.0f;
         }
-        public void print()
+        public country(string name,double power,double tech,double env, double ed_c,double ed_t,int amt_cult,int amt_ed,int amt_age)
         {
-            double amt = 0.0f;
-        
-            for(int i=0;i<people.Count;i++)
-            {
-                amt = amt + people[i].amount;
-            }
-            MessageBox.Show("Amount of sitizens="+amt.ToString()+"\n"+"Enviroment="+this.enviroment.ToString()+"\n"+"Power="+this.power.ToString()+"\n"+"Technology="+this.technology.ToString(),this.name_country,MessageBoxButtons.OK);
+            this.enviroment = env;
+            this.name_country = name;
+            this.power = power;
+            this.technology = tech;
+            this.educ_cult = ed_c;
+            this.educ_tech = ed_t;
+            this.population = new tensor(amt_ed, amt_age, amt_cult);
         }
     }
-    /*
-    public class per_capita_income
+    public class matrix
     {
-        public double amt;
-        public string education;
-
-        public per_capita_income()
+        public readonly double[,] self;
+        public int size_first;
+        public int size_second;
+        public matrix()
         {
-            this.amt = 0.0f;
-            this.education = "none";
+            size_first = 0;
+            size_second = 0;
+            self = new double[size_first,size_second];
         }
-    }*/
-    /*
-    public class country_set
-    {
-        public int amount_of_country;
-        public List<string> name_country = new List<string>();
-        public country_set(int n)
+        public matrix(int first,int second)
         {
-            this.amount_of_country = n;
-        }
-        public country_set()
-        {
-            this.amount_of_country = 0;
+            size_first = first;
+            size_second = second;
+            self = new double[size_first, size_second];
         }
     }
-    */
 }

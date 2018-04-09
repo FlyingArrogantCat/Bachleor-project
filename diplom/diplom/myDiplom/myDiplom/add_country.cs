@@ -81,10 +81,10 @@ namespace myDiplom
                         else
                         {
                             MessageBox.Show("This name country already exists. Choose other name.","Error",MessageBoxButtons.OK);
+                            return;
                         }
                     }
                     main.Gomer.Add(main.temp_country);
-                    main.temp_country.print();
                     DialogResult temp = MessageBox.Show("Do you want to add one more country?","",MessageBoxButtons.YesNo);
                     if (temp==DialogResult.Yes)
                     {

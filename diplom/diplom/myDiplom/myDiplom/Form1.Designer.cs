@@ -64,14 +64,14 @@
             // showDataToolStripMenuItem
             // 
             this.showDataToolStripMenuItem.Name = "showDataToolStripMenuItem";
-            this.showDataToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showDataToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
             this.showDataToolStripMenuItem.Text = "add";
             this.showDataToolStripMenuItem.Click += new System.EventHandler(this.showDataToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
             this.exitToolStripMenuItem.Text = "exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -125,7 +125,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "MainModel ver .0.0.4";
+            this.Text = "MainModel ver .0.0.7";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
