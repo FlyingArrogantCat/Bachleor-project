@@ -47,6 +47,6 @@ C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.pdb
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\myDiplom.exe.config
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\myDiplom.exe
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\myDiplom.pdb
-C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.view_dataset.resources
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\Database.mdf
 C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\bin\Debug\Database_log.ldf
+C:\Users\fyodo\Desktop\diplom\diplom\myDiplom\myDiplom\obj\Debug\myDiplom.Filling_data.resources
