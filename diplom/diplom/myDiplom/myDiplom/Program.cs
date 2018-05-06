@@ -163,7 +163,8 @@ namespace myDiplom
         public matrix ch_age = new matrix(10,10);
         public matrix ch_educ = new matrix(3,3);
         //public List<per_capita_income> median_income_capital=new List<per_capita_income>();
-
+        private int amt_ed=3;
+        private int amt_age = 10;
         public country()
         {
             this.enviroment = 0.0f;
@@ -173,7 +174,7 @@ namespace myDiplom
             this.educ_cult = 0.0f;
             this.educ_tech = 0.0f;
         }
-        public country(string name,double power,double tech,double env, double ed_c,double ed_t,/*int amt_cult,*/int amt_ed,int amt_age)
+        public country(string name,double power,double tech,double env, double ed_c,double ed_t/*,int amt_cult,int amt_ed,int amt_age*/)
         {
             this.enviroment = env;
             this.name_country = name;
@@ -215,6 +216,17 @@ namespace myDiplom
                 for (int j = 0; j < size_second; j++)
                 {
                     self[i, j] = 0.0f;
+                }
+        }
+        public matrix(double number,int size_f,int size_s)
+        {
+            this.size_first = size_f;
+            this.size_second = size_s;
+            this.self = new double[size_first, size_second];
+            for(int i=0;i<size_first;i++)
+                for(int j=0;j<size_second;i++)
+                {
+                    self[i, j] = number;
                 }
         }
         /*

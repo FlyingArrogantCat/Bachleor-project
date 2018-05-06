@@ -25,7 +25,7 @@ namespace myDiplom
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 t = this.Owner as Form1;
-            country temp = new country("g", 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 3, 10);
+            country temp = new country("g", 0.5f, 0.5f, 0.5f, 0.5f, 0.5f);
             try
             {
 // MessageBox.Show(t.Gomer.Count.ToString(), "AMT", MessageBoxButtons.OK);
@@ -66,10 +66,11 @@ namespace myDiplom
                 temp.population.self[8, 2] = Convert.ToInt32(textBox29.Text);
                 temp.population.self[9, 2] = Convert.ToInt32(textBox30.Text);
                 t.Gomer.Add(temp);
-                MessageBox.Show(t.Gomer.Count.ToString(), "AMT", MessageBoxButtons.OK);
+                //MessageBox.Show(t.Gomer.Count.ToString(), "AMT", MessageBoxButtons.OK);
+                MessageBox.Show("Country have added sucsessful!", "Ave Maria", MessageBoxButtons.OK);
                 //MessageBox.Show(t.Gomer[0].power.ToString(), "Example", MessageBoxButtons.OK);
-                
-                
+
+
             }
             catch
             {
@@ -84,5 +85,11 @@ namespace myDiplom
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Close();
+
+        private void howManyCountiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 t = this.Owner as Form1;
+            MessageBox.Show("Amount of counties = "+t.Gomer.Count.ToString(), "", MessageBoxButtons.OK);
+        }
     }
 }
