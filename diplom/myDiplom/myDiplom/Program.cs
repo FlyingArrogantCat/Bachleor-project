@@ -142,7 +142,20 @@ namespace myDiplom
             distrib = new double[size_culture, size_age];
             education = new double[size_cult];
         }
+        public double amt()
+        {
+            double temp = 0.0f;
+            for(int i=0;i< size_culture;i++)
+            {
+                for(int j=0;j<size_age;j++)
+                {
+                    temp += distrib[i, j];
+                }
+            }
+            return temp;
+        }
     }
+
     public class country
     {
         public string name_country;

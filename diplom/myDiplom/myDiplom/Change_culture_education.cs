@@ -33,6 +33,7 @@ namespace myDiplom
                 t.Gomer[index].culture.education[0] = Convert.ToDouble(this.textBox1.Text);
                 t.Gomer[index].culture.education[1] = Convert.ToDouble(this.textBox2.Text);
                 t.Gomer[index].culture.education[2] = Convert.ToDouble(this.textBox3.Text);
+                MessageBox.Show("Country have added sucsessful!", "Ave Maria", MessageBoxButtons.OK);
             }
             catch
             {

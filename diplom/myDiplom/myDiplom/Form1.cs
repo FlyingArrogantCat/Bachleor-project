@@ -89,7 +89,7 @@ namespace myDiplom
                     count.population.self[i, j] =  temptemp.self[i, j];
                     for_cult += temptemp.self[i, j];
                 }
-                count.culture.distrib[count.number - 1, i] = for_cult;
+                count.culture.distrib[count.number, i] = for_cult;
             }
             /*
             count.population.self[0, 0] = count.population.self[0, 0] + count.population.self[0, 1] + count.population.self[0, 2];
@@ -109,7 +109,7 @@ namespace myDiplom
                 {
                     for_cult += Math.Round(temp.self[i, j]);
                 }
-                count.culture.distrib[number - 1, i]+= for_cult;
+                count.culture.distrib[number, i]+= for_cult;
             }
                   
         }
@@ -146,16 +146,37 @@ namespace myDiplom
                     for_cult = 0;
                     for (int j = 0; j < Gomer[i].culture.size_age; j++)
                     {
-                        for_cult += Gomer[i].culture.distrib[i, j];
+                        for_cult += Gomer[i].culture.distrib[k, j];
                     }
                     moment[k] = for_cult;
                 }
 
                 for(int j=0;j<moment.Length;j++)
                 {
-                    moment[j] = moment[j] * Gomer[i].culture.education[j];
+                    moment[j] = moment[j] * Gomer[i].culture.education[j]/Gomer[i].culture.amt();
+                }
+
+                double[,] temptemp = new double[Gomer[i].culture.size_culture,Gomer[i].culture.size_age];
+                for (int l = 0; l < Gomer[i].culture.size_culture; l++)
+                {
+                    for (int j = 0; j < Gomer[i].culture.size_age; j++)
+                    {
+                        temptemp[l,j] = 0.0f;
+                        for (int k = 0; k < Gomer[i].culture.size_culture; k++)
+                        {
+                            temptemp[l,j] += (indicator_func(30, j * 10) * moment[k] + indicator_func(j * 10, 30)) * Gomer[i].culture.distrib[k, j];
+                        }
+                    }
+                }
+                for (int l = 0; l < Gomer[i].culture.size_culture; l++)
+                {
+                    for (int j = 0; j < Gomer[i].culture.size_age; j++)
+                    {
+                        Gomer[i].culture.distrib[l, j] = temptemp[l, j];
+                    }
                 }
             }
+
         }
 
 
@@ -302,7 +323,7 @@ namespace myDiplom
             {
                 Arrival_immigrant(Gomer[l],temp[l],Gomer[l].number);
             }
-
+            Culture_assimilation(Gomer);
             //MessageBox.Show(Gomer[0].population.self[0, 0].ToString() + "\t" + Gomer[0].population.self[0, 1].ToString() + "\t" + Gomer[0].population.self[0, 2].ToString() + "\n" + Gomer[0].population.self[1, 0].ToString() + "\t" + Gomer[0].population.self[1, 1].ToString() + "\t" + Gomer[0].population.self[1, 2].ToString() + "\n" + Gomer[0].population.self[2, 0].ToString() + "\t" + Gomer[0].population.self[2, 1].ToString() + "\t" + Gomer[0].population.self[2, 2].ToString() + "\n" + Gomer[0].population.self[3, 0].ToString() + "\t" + Gomer[0].population.self[3, 1].ToString() + "\t" + Gomer[0].population.self[3, 2].ToString() + "\n" + Gomer[0].population.self[4, 0].ToString() + "\t" + Gomer[0].population.self[4, 1].ToString() + "\t" + Gomer[0].population.self[4, 2].ToString() + "\n" + Gomer[0].population.self[5, 0].ToString() + "\t" + Gomer[0].population.self[5, 1].ToString() + "\t" + Gomer[0].population.self[5, 2].ToString(), "Result " + Gomer[0].name_country, MessageBoxButtons.OK);
             //MessageBox.Show(Gomer[1].population.self[0, 0].ToString() + "\t" + Gomer[1].population.self[0, 1].ToString() + "\t" + Gomer[1].population.self[0, 2].ToString() + "\n" + Gomer[1].population.self[1, 0].ToString() + "\t" + Gomer[1].population.self[1, 1].ToString() + "\t" + Gomer[1].population.self[1, 2].ToString() + "\n" + Gomer[1].population.self[2, 0].ToString() + "\t" + Gomer[1].population.self[2, 1].ToString() + "\t" + Gomer[1].population.self[2, 2].ToString() + "\n" + Gomer[1].population.self[3, 0].ToString() + "\t" + Gomer[1].population.self[3, 1].ToString() + "\t" + Gomer[1].population.self[3, 2].ToString() + "\n" + Gomer[1].population.self[4, 0].ToString() + "\t" + Gomer[1].population.self[4, 1].ToString() + "\t" + Gomer[1].population.self[4, 2].ToString() + "\n" + Gomer[1].population.self[5, 0].ToString() + "\t" + Gomer[1].population.self[5, 1].ToString() + "\t" + Gomer[1].population.self[5, 2].ToString(), "Result " + Gomer[1].name_country, MessageBoxButtons.OK);
             //MessageBox.Show(Gomer[2].population.self[0, 0].ToString() + "\t" + Gomer[2].population.self[0, 1].ToString() + "\t" + Gomer[2].population.self[0, 2].ToString() + "\n" + Gomer[2].population.self[1, 0].ToString() + "\t" + Gomer[2].population.self[1, 1].ToString() + "\t" + Gomer[2].population.self[1, 2].ToString() + "\n" + Gomer[2].population.self[2, 0].ToString() + "\t" + Gomer[2].population.self[2, 1].ToString() + "\t" + Gomer[2].population.self[2, 2].ToString() + "\n" + Gomer[2].population.self[3, 0].ToString() + "\t" + Gomer[2].population.self[3, 1].ToString() + "\t" + Gomer[2].population.self[3, 2].ToString() + "\n" + Gomer[2].population.self[4, 0].ToString() + "\t" + Gomer[2].population.self[4, 1].ToString() + "\t" + Gomer[2].population.self[4, 2].ToString() + "\n" + Gomer[2].population.self[5, 0].ToString() + "\t" + Gomer[2].population.self[5, 1].ToString() + "\t" + Gomer[2].population.self[5, 2].ToString(), "Result " + Gomer[2].name_country, MessageBoxButtons.OK);
@@ -374,25 +395,32 @@ namespace myDiplom
                 }
             }
             double amt = 0.0f;
-            for (int j = 0; j < Gomer[index].population.size_first; j++)
+            try
             {
-                amt = 0.0f;
-                for (int i = 0; i < Gomer[index].population.size_second; i++)
+                for (int j = 0; j < Gomer[index].population.size_first; j++)
                 {
-                    amt = amt + Gomer[index].population.self[j, i];
+                    amt = 0.0f;
+                    for (int i = 0; i < Gomer[index].population.size_second; i++)
+                    {
+                        amt = amt + Gomer[index].population.self[j, i];
+                    }
+                    this.chart1.Series["Age"].Points.AddXY((j + 1).ToString(), amt);
                 }
-                this.chart1.Series["Age"].Points.AddXY((j+1).ToString(),amt);
+
+
+                for (int j = 0; j < Gomer[index].population.size_second; j++)
+                {
+                    amt = 0.0f;
+                    for (int i = 0; i < Gomer[index].population.size_first; i++)
+                    {
+                        amt = amt + Gomer[index].population.self[i, j];
+                    }
+                    this.chart2.Series["Education"].Points.AddXY((j + 1).ToString(), amt);
+                }
             }
-
-
-            for (int j = 0; j < Gomer[index].population.size_second; j++)
+            catch
             {
-                amt = 0.0f;
-                for (int i = 0; i < Gomer[index].population.size_first; i++)
-                {
-                    amt = amt + Gomer[index].population.self[i, j];
-                }
-                this.chart2.Series["Education"].Points.AddXY((j + 1).ToString(), amt);
+                MessageBox.Show("You haven't choosed country","Error",MessageBoxButtons.OK);
             }
         }
 
