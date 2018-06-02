@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mainIdeaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,15 +45,18 @@
             this.aboutAuthorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lastCommentFromMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeCultureEducationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.changeCultureEducationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buildingGraphsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -58,10 +64,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainIdeaToolStripMenuItem,
             this.inforamnionToolStripMenuItem,
-            this.changeCultureEducationToolStripMenuItem});
+            this.changeCultureEducationToolStripMenuItem,
+            this.buildingGraphsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(563, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(559, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -78,14 +85,14 @@
             // showDataToolStripMenuItem
             // 
             this.showDataToolStripMenuItem.Name = "showDataToolStripMenuItem";
-            this.showDataToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showDataToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
             this.showDataToolStripMenuItem.Text = "add";
             this.showDataToolStripMenuItem.Click += new System.EventHandler(this.showDataToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
             this.exitToolStripMenuItem.Text = "exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -120,9 +127,16 @@
             this.lastCommentFromMeToolStripMenuItem.Text = "last comment from me";
             this.lastCommentFromMeToolStripMenuItem.Click += new System.EventHandler(this.lastCommentFromMeToolStripMenuItem_Click);
             // 
+            // changeCultureEducationToolStripMenuItem
+            // 
+            this.changeCultureEducationToolStripMenuItem.Name = "changeCultureEducationToolStripMenuItem";
+            this.changeCultureEducationToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
+            this.changeCultureEducationToolStripMenuItem.Text = "change culture education";
+            this.changeCultureEducationToolStripMenuItem.Click += new System.EventHandler(this.changeCultureEducationToolStripMenuItem_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(485, 27);
+            this.button1.Location = new System.Drawing.Point(473, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(78, 44);
             this.button1.TabIndex = 1;
@@ -132,42 +146,42 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(0, 27);
             this.chart1.Name = "chart1";
-            series1.BackImageTransparentColor = System.Drawing.Color.White;
-            series1.BorderColor = System.Drawing.Color.White;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.ForestGreen;
-            series1.Legend = "Legend1";
-            series1.Name = "Age";
-            this.chart1.Series.Add(series1);
+            series4.BackImageTransparentColor = System.Drawing.Color.White;
+            series4.BorderColor = System.Drawing.Color.White;
+            series4.ChartArea = "ChartArea1";
+            series4.Color = System.Drawing.Color.ForestGreen;
+            series4.Legend = "Legend1";
+            series4.Name = "Age";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(464, 210);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 
             // chart2
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            chartArea5.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart2.Legends.Add(legend5);
             this.chart2.Location = new System.Drawing.Point(0, 243);
             this.chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Education";
-            this.chart2.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Education";
+            this.chart2.Series.Add(series5);
             this.chart2.Size = new System.Drawing.Size(464, 229);
             this.chart2.TabIndex = 3;
             this.chart2.Text = "chart2";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(485, 243);
+            this.button2.Location = new System.Drawing.Point(473, 243);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(78, 47);
             this.button2.TabIndex = 4;
@@ -179,24 +193,42 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(485, 309);
+            this.comboBox1.Location = new System.Drawing.Point(473, 296);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(78, 21);
             this.comboBox1.TabIndex = 5;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // changeCultureEducationToolStripMenuItem
+            // buildingGraphsToolStripMenuItem
             // 
-            this.changeCultureEducationToolStripMenuItem.Name = "changeCultureEducationToolStripMenuItem";
-            this.changeCultureEducationToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
-            this.changeCultureEducationToolStripMenuItem.Text = "change culture education";
-            this.changeCultureEducationToolStripMenuItem.Click += new System.EventHandler(this.changeCultureEducationToolStripMenuItem_Click);
+            this.buildingGraphsToolStripMenuItem.Name = "buildingGraphsToolStripMenuItem";
+            this.buildingGraphsToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.buildingGraphsToolStripMenuItem.Text = "building graphs";
+            this.buildingGraphsToolStripMenuItem.Click += new System.EventHandler(this.buildingGraphsToolStripMenuItem_Click);
+            // 
+            // chart3
+            // 
+            this.chart3.BorderlineColor = System.Drawing.Color.Violet;
+            chartArea6.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart3.Legends.Add(legend6);
+            this.chart3.Location = new System.Drawing.Point(0, 478);
+            this.chart3.Name = "chart3";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Culture";
+            this.chart3.Series.Add(series6);
+            this.chart3.Size = new System.Drawing.Size(464, 229);
+            this.chart3.TabIndex = 6;
+            this.chart3.Text = "chart3";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 474);
+            this.ClientSize = new System.Drawing.Size(559, 708);
+            this.Controls.Add(this.chart3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.chart2);
@@ -205,12 +237,13 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "MainModel ver .0.0.7";
+            this.Text = "MainModel ver .0.0.15";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +265,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ToolStripMenuItem changeCultureEducationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buildingGraphsToolStripMenuItem;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
     }
 }
 

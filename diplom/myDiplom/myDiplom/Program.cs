@@ -140,7 +140,18 @@ namespace myDiplom
             size_culture = size_cult;
             size_age = size_a;
             distrib = new double[size_culture, size_age];
+            for(int i=0;i< size_culture;i++)
+            {
+                for(int j=0;j< size_age;j++)
+                {
+                    distrib[i, j] = 0.0f;
+                }
+            }
             education = new double[size_cult];
+            for (int i=0;i< size_cult;i++)
+            {
+                education[i] = 0.0f;
+            }
         }
         public double amt()
         {
@@ -252,5 +263,16 @@ namespace myDiplom
         }
         */
     }
-    
+    public class dynamic
+    {
+        public string name_country;
+        public List<double[]> culture = new List<double[]>();
+        public List<double[]> age = new List<double[]>();
+        public List<double[]> educ = new List<double[]>();
+        public List<double> population = new List<double>();
+        public dynamic()
+        {
+            name_country = "temp";
+        }
+    }
 }

@@ -662,6 +662,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Filling_data";
             this.Text = "Filling_data";
+            this.Load += new System.EventHandler(this.Filling_data_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

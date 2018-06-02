@@ -78,6 +78,7 @@ namespace myDiplom
                     }
                     temp.culture.distrib[t.Gomer.Count, i] = tempo;
                 }
+                
                 t.Gomer.Add(temp);
                 //MessageBox.Show(t.Gomer.Count.ToString(), "AMT", MessageBoxButtons.OK);
                 MessageBox.Show("Country have added sucsessful!", "Ave Maria", MessageBoxButtons.OK);
@@ -105,6 +106,11 @@ namespace myDiplom
         {
             Form1 t = this.Owner as Form1;
             MessageBox.Show("Amount of counties = "+t.Gomer.Count.ToString(), "", MessageBoxButtons.OK);
+        }
+
+        private void Filling_data_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

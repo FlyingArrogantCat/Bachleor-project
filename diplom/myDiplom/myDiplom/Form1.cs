@@ -23,6 +23,7 @@ namespace myDiplom
         public List<country> Gomer = new List<country>(Amount_of_country);
         public matrix graph = new matrix(3, 3);
         public matrix input = new matrix(10, 3);
+        public List<dynamic> dym=new List<dynamic>(Amount_of_country);
         //public matrix output = new matrix(10, 3);
         public void computing_matrix_change(List<country> Gomer)
         {
@@ -131,29 +132,32 @@ namespace myDiplom
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    temp.population.self[i,j] = Math.Round(temptemp.self[i,j]);
+                    temp.population.self[i,j] = temptemp.self[i,j];
                 }
             }
         }
         public void Culture_assimilation(List<country> Gomer)
         {
-            double for_cult = 0;
+            double for_cult = 0.0f;
             double[] moment = {0,0,0};
             for (int i=0;i<Gomer.Count;i++)
             {
-                for (int k = 0; k < Gomer.Count; k++)
+                for (int k = 0; k < Gomer[i].culture.size_culture; k++)
                 {
-                    for_cult = 0;
+                    for_cult = 0.0f;
                     for (int j = 0; j < Gomer[i].culture.size_age; j++)
                     {
                         for_cult += Gomer[i].culture.distrib[k, j];
                     }
                     moment[k] = for_cult;
+                    // MessageBox.Show(moment[k].ToString(), Gomer[i].name_country, MessageBoxButtons.OK);
                 }
 
                 for(int j=0;j<moment.Length;j++)
                 {
-                    moment[j] = moment[j] * Gomer[i].culture.education[j]/Gomer[i].culture.amt();
+                    moment[j] = moment[j] /** Gomer[i].culture.education[j]*//Gomer[i].culture.amt();
+                    //MessageBox.Show(moment[j].ToString(), Gomer[i].name_country, MessageBoxButtons.OK);
+
                 }
 
                 double[,] temptemp = new double[Gomer[i].culture.size_culture,Gomer[i].culture.size_age];
@@ -164,7 +168,7 @@ namespace myDiplom
                         temptemp[l,j] = 0.0f;
                         for (int k = 0; k < Gomer[i].culture.size_culture; k++)
                         {
-                            temptemp[l,j] += (indicator_func(30, j * 10) * moment[k] + indicator_func(j * 10, 30)) * Gomer[i].culture.distrib[k, j];
+                            temptemp[l,j] += (indicator_func(30, j * 10) * moment[k] + indicator_func(j * 10, 30)) *Gomer[i].culture.education[l]* Gomer[i].culture.distrib[k, j];
                         }
                     }
                 }
@@ -173,6 +177,7 @@ namespace myDiplom
                     for (int j = 0; j < Gomer[i].culture.size_age; j++)
                     {
                         Gomer[i].culture.distrib[l, j] = temptemp[l, j];
+                        //MessageBox.Show(temptemp[l, j].ToString(), Gomer[i].name_country, MessageBoxButtons.OK);
                     }
                 }
             }
@@ -220,13 +225,15 @@ namespace myDiplom
                     for (int k = 0; k < Gomer[i].ch_educ.size_second; k++)
                     {
                         if(j==k)
-                            Gomer[i].ch_educ.self[j, k] = 0.5f;
+                            Gomer[i].ch_educ.self[j, k] =1- Gomer[i].educ_tech;
                         if(j-1==k)
-                            Gomer[i].ch_educ.self[j, k] = 0.5f;
+                            Gomer[i].ch_educ.self[j, k] = Gomer[i].educ_tech;
                         Gomer[i].ch_educ.self[Gomer[i].ch_educ.size_first - 1, Gomer[i].ch_educ.size_second - 1] = 1.0f;
+
                     }
                 }
             }
+            //MessageBox.Show(Gomer[0].ch_educ.self[0,0]+"\t"+ Gomer[0].ch_educ.self[0, 1] + "\t"+ Gomer[0].ch_educ.self[0, 2] + "\n"+ Gomer[0].ch_educ.self[1, 0] + "\t" + Gomer[0].ch_educ.self[1, 1] + "\t" + Gomer[0].ch_educ.self[1, 2]+ Gomer[0].ch_educ.self[2, 0] + "\t" + Gomer[0].ch_educ.self[2, 1] + "\t" + Gomer[0].ch_educ.self[2, 2], "Educ coeff", MessageBoxButtons.OK);
         }
         public Form1()
         {
@@ -287,51 +294,117 @@ namespace myDiplom
 
         private void lastCommentFromMeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show( "We can make cryptographic randomizer for our program using from 'System.Security.Cryptography' class 'RNGCryptoServiceProvider' ", "Comment", MessageBoxButtons.OK);
+            MessageBox.Show( "We can add cryptographic randomizer for our program using from 'System.Security.Cryptography' class 'RNGCryptoServiceProvider' ", "Comment", MessageBoxButtons.OK);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Graph_calc(Gomer, graph);
-            defeintion_coeff_matrix(Gomer);
-            List<matrix> temp = new List<matrix>();
-           
-            for (int l=0;l<Gomer.Count;l++)
+            dynamic tt = new dynamic();
+            for (int i=0;i<Gomer.Count;i++)
             {
-                input = new matrix(10, 3);
-                for (int k=0;k<Gomer.Count;k++)
+                dym.Add(tt);
+            }
+            for (int rr = 0; rr < 5; rr++)
+            {
+                Graph_calc(Gomer, graph);
+                defeintion_coeff_matrix(Gomer);
+                List<matrix> temp = new List<matrix>();
+
+                for (int l = 0; l < Gomer.Count; l++)
                 {
-                    if (k == l) continue;
-                    for(int i=0;i<10;i++)
+                    input = new matrix(10, 3);
+                    for (int k = 0; k < Gomer.Count; k++)
                     {
-                        for(int j=0;j<3;j++)
+                        if (k == l) continue;
+                        for (int i = 0; i < 10; i++)
                         {
-                            
-                            input.self[i, j] = Math.Round(graph.self[l, k] * Gomer[l].population.self[i, j] * coeff(i, j));
-                            if (input.self[i, j] > Gomer[l].population.self[i, j])
+                            for (int j = 0; j < 3; j++)
                             {
-                                input.self[i, j] = Gomer[l].population.self[i, j];
-                                Gomer[l].population.self[i, j] = 0;
+
+                                input.self[i, j] = Math.Round(graph.self[l, k] * Gomer[l].population.self[i, j] * coeff(i, j));
+                                if (input.self[i, j] > Gomer[l].population.self[i, j])
+                                {
+                                    input.self[i, j] = Gomer[l].population.self[i, j];
+                                    Gomer[l].population.self[i, j] = 0;
+                                }
+                                else Gomer[l].population.self[i, j] = Gomer[l].population.self[i, j] - input.self[i, j];
                             }
-                            else Gomer[l].population.self[i, j] = Gomer[l].population.self[i, j]- input.self[i, j];
                         }
                     }
+                    temp.Add(input);
                 }
-                temp.Add(input);
+                for (int l = 0; l < Gomer.Count; l++)
+                {
+                    Arrival_immigrant(Gomer[l], temp[l], Gomer[l].number);
+                }
+                Culture_assimilation(Gomer);
+                //MessageBox.Show(Gomer[0].population.self[0, 0].ToString() + "\t" + Gomer[0].population.self[0, 1].ToString() + "\t" + Gomer[0].population.self[0, 2].ToString() + "\n" + Gomer[0].population.self[1, 0].ToString() + "\t" + Gomer[0].population.self[1, 1].ToString() + "\t" + Gomer[0].population.self[1, 2].ToString() + "\n" + Gomer[0].population.self[2, 0].ToString() + "\t" + Gomer[0].population.self[2, 1].ToString() + "\t" + Gomer[0].population.self[2, 2].ToString() + "\n" + Gomer[0].population.self[3, 0].ToString() + "\t" + Gomer[0].population.self[3, 1].ToString() + "\t" + Gomer[0].population.self[3, 2].ToString() + "\n" + Gomer[0].population.self[4, 0].ToString() + "\t" + Gomer[0].population.self[4, 1].ToString() + "\t" + Gomer[0].population.self[4, 2].ToString() + "\n" + Gomer[0].population.self[5, 0].ToString() + "\t" + Gomer[0].population.self[5, 1].ToString() + "\t" + Gomer[0].population.self[5, 2].ToString(), "Result " + Gomer[0].name_country, MessageBoxButtons.OK);
+                //MessageBox.Show(Gomer[1].population.self[0, 0].ToString() + "\t" + Gomer[1].population.self[0, 1].ToString() + "\t" + Gomer[1].population.self[0, 2].ToString() + "\n" + Gomer[1].population.self[1, 0].ToString() + "\t" + Gomer[1].population.self[1, 1].ToString() + "\t" + Gomer[1].population.self[1, 2].ToString() + "\n" + Gomer[1].population.self[2, 0].ToString() + "\t" + Gomer[1].population.self[2, 1].ToString() + "\t" + Gomer[1].population.self[2, 2].ToString() + "\n" + Gomer[1].population.self[3, 0].ToString() + "\t" + Gomer[1].population.self[3, 1].ToString() + "\t" + Gomer[1].population.self[3, 2].ToString() + "\n" + Gomer[1].population.self[4, 0].ToString() + "\t" + Gomer[1].population.self[4, 1].ToString() + "\t" + Gomer[1].population.self[4, 2].ToString() + "\n" + Gomer[1].population.self[5, 0].ToString() + "\t" + Gomer[1].population.self[5, 1].ToString() + "\t" + Gomer[1].population.self[5, 2].ToString(), "Result " + Gomer[1].name_country, MessageBoxButtons.OK);
+                //MessageBox.Show(Gomer[2].population.self[0, 0].ToString() + "\t" + Gomer[2].population.self[0, 1].ToString() + "\t" + Gomer[2].population.self[0, 2].ToString() + "\n" + Gomer[2].population.self[1, 0].ToString() + "\t" + Gomer[2].population.self[1, 1].ToString() + "\t" + Gomer[2].population.self[1, 2].ToString() + "\n" + Gomer[2].population.self[2, 0].ToString() + "\t" + Gomer[2].population.self[2, 1].ToString() + "\t" + Gomer[2].population.self[2, 2].ToString() + "\n" + Gomer[2].population.self[3, 0].ToString() + "\t" + Gomer[2].population.self[3, 1].ToString() + "\t" + Gomer[2].population.self[3, 2].ToString() + "\n" + Gomer[2].population.self[4, 0].ToString() + "\t" + Gomer[2].population.self[4, 1].ToString() + "\t" + Gomer[2].population.self[4, 2].ToString() + "\n" + Gomer[2].population.self[5, 0].ToString() + "\t" + Gomer[2].population.self[5, 1].ToString() + "\t" + Gomer[2].population.self[5, 2].ToString(), "Result " + Gomer[2].name_country, MessageBoxButtons.OK);
+                this.comboBox1.Items.Clear();
+                for (int i = 0; i < Gomer.Count; i++)
+                {
+                    this.comboBox1.Items.Add(Gomer[i].name_country);
+                }
+
+                double[] for_educ = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+                double[] for_age = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+                double[] for_cult = { 0.0f, 0.0f, 0.0f};
+                double all_popul = 0.0f;
+                for (int i = 0; i < Gomer.Count; i++)
+                {
+                    
+                    for(int j=0;j<Gomer[i].population.size_first;j++)
+                    {
+                        for_age[j] = 0.0f;
+                        for (int k=0;k<Gomer[i].population.size_second;k++)
+                        {
+                            for_age[j] += Gomer[i].population.self[j, k];
+                        }
+                    }
+                    //MessageBox.Show(for_age.ToString(), "amt population",MessageBoxButtons.OK);
+                    
+
+                    for(int k = 0; k < Gomer[i].population.size_second; k++)
+                    {
+                        for_educ[k] = 0.0f;
+                        for (int j = 0; j < Gomer[i].population.size_first; j++)
+                        {
+                            for_educ[k]+= Gomer[i].population.self[j, k];
+                        }
+                    }
+                    //MessageBox.Show(for_age.ToString(), "amt population", MessageBoxButtons.OK);
+                    
+
+                    for (int k = 0; k < Gomer[i].population.size_second; k++)
+                    {
+                        for (int j = 0; j < Gomer[i].population.size_first; j++)
+                        {
+                            all_popul+= Gomer[i].population.self[j, k];
+                        }
+                    }
+                    
+
+                    for(int k=0;k<Gomer[i].culture.size_culture;k++)
+                    {
+                        for_cult[k] = 0.0f;
+                        for (int j=0;j<Gomer[i].culture.size_age;j++)
+                        {
+                            for_cult[k] += Gomer[i].culture.distrib[k, j];
+                        }                           
+                    }
+
+                dym[i].name_country = Gomer[i].name_country;
+                dym[i].population.Add(all_popul);
+                dym[i].culture.Add(for_cult);
+                dym[i].educ.Add(for_educ);
+                dym[i].age.Add(for_age);
+                }
             }
-            for(int l=0;l<Gomer.Count;l++)
-            {
-                Arrival_immigrant(Gomer[l],temp[l],Gomer[l].number);
-            }
-            Culture_assimilation(Gomer);
-            //MessageBox.Show(Gomer[0].population.self[0, 0].ToString() + "\t" + Gomer[0].population.self[0, 1].ToString() + "\t" + Gomer[0].population.self[0, 2].ToString() + "\n" + Gomer[0].population.self[1, 0].ToString() + "\t" + Gomer[0].population.self[1, 1].ToString() + "\t" + Gomer[0].population.self[1, 2].ToString() + "\n" + Gomer[0].population.self[2, 0].ToString() + "\t" + Gomer[0].population.self[2, 1].ToString() + "\t" + Gomer[0].population.self[2, 2].ToString() + "\n" + Gomer[0].population.self[3, 0].ToString() + "\t" + Gomer[0].population.self[3, 1].ToString() + "\t" + Gomer[0].population.self[3, 2].ToString() + "\n" + Gomer[0].population.self[4, 0].ToString() + "\t" + Gomer[0].population.self[4, 1].ToString() + "\t" + Gomer[0].population.self[4, 2].ToString() + "\n" + Gomer[0].population.self[5, 0].ToString() + "\t" + Gomer[0].population.self[5, 1].ToString() + "\t" + Gomer[0].population.self[5, 2].ToString(), "Result " + Gomer[0].name_country, MessageBoxButtons.OK);
-            //MessageBox.Show(Gomer[1].population.self[0, 0].ToString() + "\t" + Gomer[1].population.self[0, 1].ToString() + "\t" + Gomer[1].population.self[0, 2].ToString() + "\n" + Gomer[1].population.self[1, 0].ToString() + "\t" + Gomer[1].population.self[1, 1].ToString() + "\t" + Gomer[1].population.self[1, 2].ToString() + "\n" + Gomer[1].population.self[2, 0].ToString() + "\t" + Gomer[1].population.self[2, 1].ToString() + "\t" + Gomer[1].population.self[2, 2].ToString() + "\n" + Gomer[1].population.self[3, 0].ToString() + "\t" + Gomer[1].population.self[3, 1].ToString() + "\t" + Gomer[1].population.self[3, 2].ToString() + "\n" + Gomer[1].population.self[4, 0].ToString() + "\t" + Gomer[1].population.self[4, 1].ToString() + "\t" + Gomer[1].population.self[4, 2].ToString() + "\n" + Gomer[1].population.self[5, 0].ToString() + "\t" + Gomer[1].population.self[5, 1].ToString() + "\t" + Gomer[1].population.self[5, 2].ToString(), "Result " + Gomer[1].name_country, MessageBoxButtons.OK);
-            //MessageBox.Show(Gomer[2].population.self[0, 0].ToString() + "\t" + Gomer[2].population.self[0, 1].ToString() + "\t" + Gomer[2].population.self[0, 2].ToString() + "\n" + Gomer[2].population.self[1, 0].ToString() + "\t" + Gomer[2].population.self[1, 1].ToString() + "\t" + Gomer[2].population.self[1, 2].ToString() + "\n" + Gomer[2].population.self[2, 0].ToString() + "\t" + Gomer[2].population.self[2, 1].ToString() + "\t" + Gomer[2].population.self[2, 2].ToString() + "\n" + Gomer[2].population.self[3, 0].ToString() + "\t" + Gomer[2].population.self[3, 1].ToString() + "\t" + Gomer[2].population.self[3, 2].ToString() + "\n" + Gomer[2].population.self[4, 0].ToString() + "\t" + Gomer[2].population.self[4, 1].ToString() + "\t" + Gomer[2].population.self[4, 2].ToString() + "\n" + Gomer[2].population.self[5, 0].ToString() + "\t" + Gomer[2].population.self[5, 1].ToString() + "\t" + Gomer[2].population.self[5, 2].ToString(), "Result " + Gomer[2].name_country, MessageBoxButtons.OK);
-            this.comboBox1.Items.Clear();
-            for (int i = 0; i < Gomer.Count; i++)
-            {
-                this.comboBox1.Items.Add(Gomer[i].name_country);
-            }
+            //MessageBox.Show(dym[0].population.Count.ToString(), "dym[0].population.Count.ToString()", MessageBoxButtons.OK);
+            //MessageBox.Show(dym[1].population.Count.ToString(), "dym[1].population.Count.ToString()", MessageBoxButtons.OK);
+            //MessageBox.Show(dym[2].population.Count.ToString(), "dym[2].population.Count.ToString()", MessageBoxButtons.OK);
+            //MessageBox.Show(dym.Count.ToString(), "dym.Count.ToString()", MessageBoxButtons.OK);
             /*List<distribution> county = new List<distribution>();*/
             /*
             try
@@ -385,14 +458,22 @@ namespace myDiplom
         {
             this.chart1.Series["Age"].Points.Clear();
             this.chart2.Series["Education"].Points.Clear();
-
+            this.chart3.Series["Culture"].Points.Clear();
             int index = 0;
-            for(int i=0;i<Gomer.Count;i++)
+            try
             {
-                if (Gomer[i].name_country==this.comboBox1.SelectedItem.ToString())
+
+                for (int i = 0; i < Gomer.Count; i++)
                 {
-                    index = i;
+                    if (Gomer[i].name_country == this.comboBox1.SelectedItem.ToString())
+                    {
+                        index = i;
+                    }
                 }
+            }
+            catch
+            {
+                MessageBox.Show("You haven't choosed country", "Error", MessageBoxButtons.OK);
             }
             double amt = 0.0f;
             try
@@ -417,11 +498,23 @@ namespace myDiplom
                     }
                     this.chart2.Series["Education"].Points.AddXY((j + 1).ToString(), amt);
                 }
+
+                for (int i = 0; i < Gomer[index].culture.size_culture; i++)
+                {
+                    amt = 0.0f;                   
+                    for (int j = 0; j < Gomer[index].culture.size_age; j++)
+                    {
+                        amt = amt + Gomer[index].culture.distrib[i, j];
+                    }
+                    this.chart3.Series["Culture"].Points.AddXY(Gomer[i].name_country,amt);
+                }
+
             }
             catch
             {
                 MessageBox.Show("You haven't choosed country","Error",MessageBoxButtons.OK);
             }
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -432,6 +525,13 @@ namespace myDiplom
         private void changeCultureEducationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Change_culture_education f = new Change_culture_education();
+            f.Owner = this;
+            f.ShowDialog();
+        }
+
+        private void buildingGraphsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            graphs f = new graphs();
             f.Owner = this;
             f.ShowDialog();
         }
