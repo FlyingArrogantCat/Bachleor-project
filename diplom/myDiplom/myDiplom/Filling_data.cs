@@ -78,8 +78,39 @@ namespace myDiplom
                     }
                     temp.culture.distrib[t.Gomer.Count, i] = tempo;
                 }
-                
+                int k = 0;
+                for(int i=0;i<t.Gomer.Count;i++)
+                {
+                    if(temp.name_country==t.Gomer[i].name_country)
+                    {
+                        k = k + 1;
+                    }
+                }
+                if(k>0)
+                {
+                    MessageBox.Show("Change name country", "Error", MessageBoxButtons.OK);
+                    return;
+                }
                 t.Gomer.Add(temp);
+                for(int i=0;i<t.Gomer.Count;i++)
+                {
+                    /*double[] tempp = new double[t.Gomer.Count];
+                    tempp[t.Gomer[i].number] = 0.9f;*/
+                    t.Gomer[i].culture = new culture_distr(t.Gomer.Count, 10);
+                    for (int j=0;j<t.Gomer[i].culture.size_culture;j++)
+                    {
+                        if (i != j)
+                        {
+                            t.Gomer[i].culture.education[j] = 0.1f / (t.Gomer.Count - 1);
+                        }
+                        else
+                        {
+                            t.Gomer[i].culture.education[j] = 0.9f;
+                        }
+                    }
+                    MessageBox.Show(t.Gomer[i].culture.size_culture.ToString(), "", MessageBoxButtons.OK);
+                }
+                
                 //MessageBox.Show(t.Gomer.Count.ToString(), "AMT", MessageBoxButtons.OK);
                 MessageBox.Show("Country have added sucsessful!", "Ave Maria", MessageBoxButtons.OK);
                 //MessageBox.Show(temp.culture.distrib[t.Gomer.Count-1, 0].ToString()+'\t'+ temp.culture.distrib[t.Gomer.Count - 1, 1].ToString() + '\t'+temp.culture.distrib[t.Gomer.Count - 1, 2].ToString() + '\t' + temp.culture.distrib[t.Gomer.Count - 1, 3].ToString() + '\t' + temp.culture.distrib[t.Gomer.Count - 1, 4].ToString() + '\t' + temp.culture.distrib[t.Gomer.Count - 1, 5].ToString() + '\t' + temp.culture.distrib[t.Gomer.Count - 1, 6].ToString() + '\t' + temp.culture.distrib[t.Gomer.Count - 1, 7].ToString() + '\t' + temp.culture.distrib[t.Gomer.Count - 1, 8].ToString() + '\t' + temp.culture.distrib[t.Gomer.Count - 1, 9].ToString() + '\t', "", MessageBoxButtons.OK);
