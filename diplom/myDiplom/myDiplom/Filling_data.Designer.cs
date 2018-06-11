@@ -81,12 +81,10 @@
             this.textBox32 = new System.Windows.Forms.TextBox();
             this.textBox33 = new System.Windows.Forms.TextBox();
             this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.textBox36 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -119,7 +117,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(469, 332);
+            this.button1.Location = new System.Drawing.Point(469, 276);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(207, 90);
             this.button1.TabIndex = 2;
@@ -578,14 +576,6 @@
             this.textBox34.TabIndex = 8;
             this.textBox34.Text = "0,7";
             // 
-            // textBox35
-            // 
-            this.textBox35.Location = new System.Drawing.Point(576, 283);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(100, 20);
-            this.textBox35.TabIndex = 9;
-            this.textBox35.Text = "0,6";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -622,15 +612,6 @@
             this.label18.TabIndex = 13;
             this.label18.Text = "education tech";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(466, 286);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(74, 13);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "education cult";
-            // 
             // textBox36
             // 
             this.textBox36.Location = new System.Drawing.Point(576, 89);
@@ -645,12 +626,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 562);
             this.Controls.Add(this.textBox36);
-            this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBox35);
             this.Controls.Add(this.textBox34);
             this.Controls.Add(this.textBox33);
             this.Controls.Add(this.textBox32);
@@ -727,12 +706,10 @@
         private System.Windows.Forms.TextBox textBox32;
         private System.Windows.Forms.TextBox textBox33;
         private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.TextBox textBox35;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox36;
     }
 }

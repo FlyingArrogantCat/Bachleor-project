@@ -173,7 +173,7 @@ namespace myDiplom
         public double power;
         public double technology;
         public double enviroment;
-        public double educ_cult;
+        //public double educ_cult;
         public double educ_tech;
         public int number;
         public culture_distr culture;
@@ -189,7 +189,7 @@ namespace myDiplom
             this.name_country = "";
             this.power = 0.0f;
             this.technology = 0.0f;
-            this.educ_cult = 0.0f;
+            //this.educ_cult = 0.0f;
             this.educ_tech = 0.0f;
             this.number = 0;
         }
@@ -199,7 +199,7 @@ namespace myDiplom
             this.name_country = name;
             this.power = power;
             this.technology = tech;
-            this.educ_cult = ed_c;
+            //this.educ_cult = ed_c;
             this.educ_tech = ed_t;
             this.number = number;
             //this.culture.size_amt_cult = amt_cult;
@@ -266,13 +266,44 @@ namespace myDiplom
     public class dynamic
     {
         public string name_country;
+        public int iteration;
+        public int number;
+        public readonly double[] culture;
+        public double[] age = new double[10];
+        public double[] educ = new double[3];
+        public double population;
+        public dynamic(int cult)
+        {
+            culture = new double[cult];
+            name_country = "temp";
+            iteration = 0;
+            population = 0;
+            number = 0;
+        }
+        public dynamic()
+        {
+            culture = new double[1];
+            name_country = "temp";
+            iteration = 0;
+            population = 0;
+            number = 0;
+        }
+    }
+    /*
+    public class forgraps
+    {
+        public string name_country;
+        public List<double> population = new List<double>();
         public List<double[]> culture = new List<double[]>();
         public List<double[]> age = new List<double[]>();
         public List<double[]> educ = new List<double[]>();
-        public List<double> population = new List<double>();
-        public dynamic()
+        public forgraps()
         {
             name_country = "temp";
         }
-    }
+        public forgraps(string name)
+        {
+            name_country = name;
+        }
+    }*/
 }

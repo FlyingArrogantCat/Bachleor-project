@@ -45,13 +45,12 @@
             this.aboutAuthorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lastCommentFromMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeCultureEducationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buildingGraphsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.buildingGraphsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -64,11 +63,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mainIdeaToolStripMenuItem,
             this.inforamnionToolStripMenuItem,
-            this.changeCultureEducationToolStripMenuItem,
             this.buildingGraphsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(559, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(568, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -127,12 +125,12 @@
             this.lastCommentFromMeToolStripMenuItem.Text = "last comment from me";
             this.lastCommentFromMeToolStripMenuItem.Click += new System.EventHandler(this.lastCommentFromMeToolStripMenuItem_Click);
             // 
-            // changeCultureEducationToolStripMenuItem
+            // buildingGraphsToolStripMenuItem
             // 
-            this.changeCultureEducationToolStripMenuItem.Name = "changeCultureEducationToolStripMenuItem";
-            this.changeCultureEducationToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
-            this.changeCultureEducationToolStripMenuItem.Text = "change culture education";
-            this.changeCultureEducationToolStripMenuItem.Click += new System.EventHandler(this.changeCultureEducationToolStripMenuItem_Click);
+            this.buildingGraphsToolStripMenuItem.Name = "buildingGraphsToolStripMenuItem";
+            this.buildingGraphsToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.buildingGraphsToolStripMenuItem.Text = "building graphs";
+            this.buildingGraphsToolStripMenuItem.Click += new System.EventHandler(this.buildingGraphsToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -199,13 +197,6 @@
             this.comboBox1.TabIndex = 5;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // buildingGraphsToolStripMenuItem
-            // 
-            this.buildingGraphsToolStripMenuItem.Name = "buildingGraphsToolStripMenuItem";
-            this.buildingGraphsToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
-            this.buildingGraphsToolStripMenuItem.Text = "building graphs";
-            this.buildingGraphsToolStripMenuItem.Click += new System.EventHandler(this.buildingGraphsToolStripMenuItem_Click);
-            // 
             // chart3
             // 
             this.chart3.BorderlineColor = System.Drawing.Color.Violet;
@@ -227,7 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 708);
+            this.ClientSize = new System.Drawing.Size(568, 708);
             this.Controls.Add(this.chart3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
@@ -264,7 +255,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ToolStripMenuItem changeCultureEducationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buildingGraphsToolStripMenuItem;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
     }
