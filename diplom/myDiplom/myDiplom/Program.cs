@@ -132,41 +132,24 @@ namespace myDiplom
     */
     public class culture_distr
     {
-        public int size_culture, size_age;
-        public readonly double[,] distrib;
-        public readonly double[] education;
-        public culture_distr(int size_cult,int size_a)
+        public int size_amt_people;
+        public int size_amt_cult;
+        public readonly List<double[]> distrib;
+        public culture_distr(int a,int b)
         {
-            size_culture = size_cult;
-            size_age = size_a;
-            distrib = new double[size_culture, size_age];
-            for(int i=0;i< size_culture;i++)
-            {
-                for(int j=0;j< size_age;j++)
-                {
-                    distrib[i, j] = 0.0f;
-                }
-            }
-            education = new double[size_cult];
-            for (int i=0;i< size_cult;i++)
-            {
-                education[i] = 0.0f;
-            }
+            size_amt_people = a;
+            size_amt_cult = b;
+            distrib = new List<double[]>();
         }
-        public double amt()
+        public int size_people()
         {
-            double temp = 0.0f;
-            for(int i=0;i< size_culture;i++)
-            {
-                for(int j=0;j<size_age;j++)
-                {
-                    temp += distrib[i, j];
-                }
-            }
-            return temp;
+            return size_amt_people;
+        }
+        public int size_culture()
+        {
+            return size_amt_cult;
         }
     }
-
     public class country
     {
         public string name_country;
@@ -176,13 +159,15 @@ namespace myDiplom
         //public double educ_cult;
         public double educ_tech;
         public int number;
-        public culture_distr culture;
-        public matrix population=new matrix(10,3);
+        public List<double> educ_cult = new List<double>();
+        public matrix ch_cult=new matrix(10,10);
+        /*public matrix population=new matrix(10,3);*/
         public matrix ch_age = new matrix(10,10);
         public matrix ch_educ = new matrix(3,3);
-        //public List<per_capita_income> median_income_capital=new List<per_capita_income>();
+        public matrix3d pop = new matrix3d(100, 3, 10);
         private int amt_ed=3;
-        private int amt_age = 10;
+        private int amt_age = 100;
+        private int amt_cult = 10;
         public country()
         {
             this.enviroment = 0.0f;
@@ -191,9 +176,8 @@ namespace myDiplom
             this.technology = 0.0f;
             //this.educ_cult = 0.0f;
             this.educ_tech = 0.0f;
-            this.number = 0;
         }
-        public country(string name,double power,double tech,double env, double ed_c,double ed_t,int number/*,int amt_cult,int amt_ed,int amt_age*/)
+        public country(string name,double power,double tech,double env, double ed_c,double ed_t,int amt_cult)
         {
             this.enviroment = env;
             this.name_country = name;
@@ -201,32 +185,17 @@ namespace myDiplom
             this.technology = tech;
             //this.educ_cult = ed_c;
             this.educ_tech = ed_t;
-            this.number = number;
-            //this.culture.size_amt_cult = amt_cult;
-            this.population = new matrix( amt_age, amt_ed);
+            this.amt_cult = amt_cult;
+            //this.population = new matrix( amt_age, amt_ed);
+            this.pop = new matrix3d(this.amt_age, this.amt_ed, this.amt_cult);
         }
-        /*
-        public void filling_culture()
-        {
-            int t=0;
-            for (int i = 0; i < population.size_first; i++)
-                for (int j = 0; j < population.size_second; j++)
-                    t += Convert.ToInt16(population.self[i, j]);
-            culture.distrib = new matrix(t, culture.size_amt_cult);
-        }
-        */
+        public void 
     }
     public class matrix
     {
         public readonly double[,] self;
         public int size_first;
         public int size_second;
-        /*public matrix()
-        {
-            size_first = 0;
-            size_second = 0;
-            self = new double[size_first,size_second];
-        }*/
         public matrix(int first_size,int second_size)
         {
             size_first = first_size;
@@ -249,61 +218,73 @@ namespace myDiplom
                     self[i, j] = number;
                 }
         }
-        /*
-        public matrix(double number,int size)
+    }
+    public class matrix3d
+    {
+        public readonly double[,,] self;
+        public int size_first;
+        public int size_second;
+        public int size_third;
+        public matrix3d()
         {
-            size_first = size;
-            size_second = size;
-            self = new double[size_first, size_second];
-            for(int i=0;i< size_first; i++)
-                for(int j=0;j< size_second; j++)
+            size_first = 1;
+            size_second = 1;
+            size_third = 1;
+            self = new double[size_first, size_second, size_third];
+            for(int i=0;i<size_first;i++)
+            {
+                for(int j=0;j<size_second;j++)
                 {
-                    self[i, j] = Convert.ToDouble(number);
+                    for(int k=0;k<size_third;k++)
+                    {
+                        this.self[i, j, k] = 0.0f;
+                    }
                 }
+            }
         }
-        */
+        public matrix3d(int a,int b,int c)
+        {
+            size_first = a;
+            size_second = b;
+            size_third = c;
+            self = new double[size_first, size_second, size_third];
+            for (int i = 0; i < size_first; i++)
+            {
+                for (int j = 0; j < size_second; j++)
+                {
+                    for (int k = 0; k < size_third; k++)
+                    {
+                        this.self[i, j, k] = 0.0f;
+                    }
+                }
+            }
+        }
+        public matrix3d transform(int c)
+        {
+            matrix3d dh = new matrix3d(this.size_first, this.size_second, this.size_third);
+            for (int i = 0; i < dh.size_first; i++)
+            {
+                for (int j = 0; j < dh.size_second; j++)
+                {
+                    for (int k = 0; k < dh.size_third; k++)
+                    {
+                        dh.self[i, j, k] = this.self[i, j, k];
+                    }
+                }
+            }
+
+            if (c >= this.size_third)
+            {               
+                matrix3d er = new matrix3d(this.size_first, this.size_second, c);
+                for (int i = 0; i < this.size_first; i++)
+                    for (int j = 0; j < this.size_second; i++)
+                        for (int k = 0; k < c; k++)
+                            if (k >= er.size_third)
+                                er.self[i, j, k] = dh.self[i, j, k];
+                return er;
+            }
+            else return dh;
+        }
+
     }
-    public class dynamic
-    {
-        public string name_country;
-        public int iteration;
-        public int number;
-        public readonly double[] culture;
-        public double[] age = new double[10];
-        public double[] educ = new double[3];
-        public double population;
-        public dynamic(int cult)
-        {
-            culture = new double[cult];
-            name_country = "temp";
-            iteration = 0;
-            population = 0;
-            number = 0;
-        }
-        public dynamic()
-        {
-            culture = new double[1];
-            name_country = "temp";
-            iteration = 0;
-            population = 0;
-            number = 0;
-        }
-    }
-    /*
-    public class forgraps
-    {
-        public string name_country;
-        public List<double> population = new List<double>();
-        public List<double[]> culture = new List<double[]>();
-        public List<double[]> age = new List<double[]>();
-        public List<double[]> educ = new List<double[]>();
-        public forgraps()
-        {
-            name_country = "temp";
-        }
-        public forgraps(string name)
-        {
-            name_country = name;
-        }
-    }*/
 }
