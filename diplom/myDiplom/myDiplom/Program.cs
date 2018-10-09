@@ -189,7 +189,6 @@ namespace myDiplom
             //this.population = new matrix( amt_age, amt_ed);
             this.pop = new matrix3d(this.amt_age, this.amt_ed, this.amt_cult);
         }
-        public void 
     }
     public class matrix
     {
