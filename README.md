@@ -1,2 +1,2 @@
-# diplom
-diplom
+# Code of my Bahleor thesis
+todo
